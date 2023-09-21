@@ -1,17 +1,14 @@
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
-import plotly.graph_objects as go
 from tinydb import TinyDB
 aba1,aba2=st.tabs(['Cadastro','Usuário'])
 with aba1:
   st.title('Bem vindo a Semeiacred+')
   st.title('Cadastro')
   DBUser = TinyDB('user_database.json')
-  print(DBUser)
   # Banco
   DBUser = TinyDB('user_database.json')
-  print(DBUser)
   # Inputs
   nome=st.text_input('Digite seu nome: ')
   cnpj=st.text_input('CPF/CNPJ: ')
@@ -35,7 +32,7 @@ with aba1:
   if st.button('Criar o Cadatro'):
     inserir_dados()
     t=DBUser.all()
-    print(t)
+    
   
 
 with aba2:
