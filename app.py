@@ -30,15 +30,18 @@ with aba1:
                   'Última Média Anual de Faturamento':fat_medio,
                   })
   if st.button('Criar o Cadatro'):
-    with open("user_database.json","w") as f:
-      file_content = f.write({'Nome': nome,
-                  'CPF/CNPJ':cnpj,
-                  'Idade': idade,
-                  'UF':selected_uf,
-                  'Área (m²)':area,
-                  'CategoriaProdutoAgricola':categoria_prod,
-                  'Última Média Anual de Faturamento':fat_medio,
-                  })
+    import json
+    with open('dados.json', 'w') as f:
+      file_content = json.dump({
+          'Nome': nome,
+          'CPF/CNPJ': cnpj,
+          'Idade': idade,
+          'UF': selected_uf,
+          'Área (m²)': area,
+          'Categoria do produto': selected_prod,
+          'Última Média Anual de Faturamento': fat_medio
+      }, f)
+
     #inserir_dados()
     #t=DBUser.all()
     
