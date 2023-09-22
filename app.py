@@ -6,9 +6,9 @@ aba1,aba2=st.tabs(['Cadastro','Usuário'])
 with aba1:
   st.title('Bem vindo a Semeiacred+')
   st.title('Cadastro')
-  DBUser = TinyDB('user_database.json')
+  
   # Banco
-  DBUser = TinyDB('user_database.json')
+  
   # Inputs
   nome=st.text_input('Digite seu nome: ')
   cnpj=st.text_input('CPF/CNPJ: ')
@@ -30,8 +30,17 @@ with aba1:
                   'Última Média Anual de Faturamento':fat_medio,
                   })
   if st.button('Criar o Cadatro'):
-    inserir_dados()
-    t=DBUser.all()
+    with open("user_database.json","w") as f:
+      file_content = f.write({'Nome': nome,
+                  'CPF/CNPJ':cnpj,
+                  'Idade': idade,
+                  'UF':selected_uf,
+                  'Área (m²)':area,
+                  'CategoriaProdutoAgricola':categoria_prod,
+                  'Última Média Anual de Faturamento':fat_medio,
+                  })
+    #inserir_dados()
+    #t=DBUser.all()
     
   
 
